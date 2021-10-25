@@ -13,9 +13,7 @@
 
 <body>
     {{-- ------------Navbar------------ --}}
-{{--    @include('navbar')--}}
-    <x-navbar />
-
+    @include('navbar')
     <div id="space"></div>
 
 {{--    ----------------Client Info--------------------}}

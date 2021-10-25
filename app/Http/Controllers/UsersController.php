@@ -46,6 +46,7 @@ class UsersController extends Controller
         $data = new users();
 
         // $name = $request->file('file');
+        $name = $request->file('file');
 
         // ?---------------Validation----------------
         $request->validate(

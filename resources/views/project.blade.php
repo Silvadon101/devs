@@ -15,7 +15,8 @@
 
 <body>
 {{-- ------------Navbar------------ --}}
-@include('navbar')
+<x-navbar />
+
 <div id="space"></div>
 
 {{--    ----------------Client Info--------------------}}
@@ -87,8 +88,8 @@
 </div>
 
 <br><br><br>
-{{--------------Footer-------------}}
- @include('footer')
+    {{--------------Footer-------------}}
+    <x-footer />
 </body>
 
 </html>

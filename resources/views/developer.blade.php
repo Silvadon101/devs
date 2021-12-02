@@ -133,6 +133,6 @@
     <br><br><br>
 
     {{-- ---------Footer--------- --}}
-    @include('footer')
+    <x-footer />
 </body>
 </html>

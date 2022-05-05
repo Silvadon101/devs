@@ -16,9 +16,9 @@ class DevController extends Controller
     public function index()
     {
         // *------------Checking if user is logged in before accessing site------------
-        if(session()->has('loguser')){
-            $devs = developers::where('created_by',"=",session('loguser'))->get();
-            $list = developers::select('projects')->where('created_by',"=",session('loguser'))->distinct()->get();
+        if(session()->has('loguser') || session()->has('googleuser')){
+            $devs = developers::where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->get();
+            $list = developers::select('projects')->where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->distinct()->get();
             return view('developer',['devs'=>$devs,'list'=>$list,'layout'=>'index']);
         }else{
             return redirect('land');
@@ -32,8 +32,9 @@ class DevController extends Controller
      */
     public function create()
     {
-        $devs = developers::where('created_by',"=",session('loguser'))->get();
-        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->distinct()->get();
+        $devs = developers::where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->get();
+        $devs = developers::Where('created_by',"=",session('googleuser'))->get();
+        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->distinct()->get();
         return view('developer',['devs'=>$devs,'list'=>$list,'layout'=>'create']);
     }
 
@@ -55,6 +56,7 @@ class DevController extends Controller
         $devs->where_am_i = $request->input('where_am_i');
         $devs->projects = $request->input('projects');
         $devs->created_by = session('loguser');
+        $devs->created_by = session('googleuser');
         $devs->save();
         return redirect('/');
     }
@@ -67,9 +69,9 @@ class DevController extends Controller
      */
     public function show($id)
     {
-        $dev = developers::where('projects',$id)->where('created_by',"=",session('loguser'))->get();
-        $devs = developers::where('created_by',"=",session('loguser'))->get();
-        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->distinct()->get();
+        $dev = developers::where('projects',$id)->where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->get();
+        $devs = developers::where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->get();
+        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->distinct()->get();
         return view('project',['devs'=>$devs,'dev'=>$dev,'list'=>$list,'layout'=>'show']);
     }
 
@@ -82,8 +84,8 @@ class DevController extends Controller
     public function edit($id)
     {
         $dev = developers::find($id);
-        $devs = developers::where('created_by',"=",session('loguser'))->get();
-        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->distinct()->get();
+        $devs = developers::where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->get();
+        $list = developers::select('projects')->where('created_by',"=",session('loguser'))->orWhere('created_by',"=",session('googleuser'))->distinct()->get();
         return view('developer',['devs'=>$devs,'dev'=>$dev,'list'=>$list,'layout'=>'edit']);
     }
 

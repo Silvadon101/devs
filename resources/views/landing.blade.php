@@ -17,42 +17,47 @@
     <style>
         /* ------Google Btn------ */
 
-.google-btn {
-  width: 184px;
-  height: 42px;
-  background-color: #222222;
-  border-radius: 10px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
-}
-  .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px 2px 2px 10px;
-    background-color: #fff;
-  }
-  .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
-  }
-  .btn-text {
-    float: right;
-    margin: 11px 11px 0 0;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    font-family: "Roboto";
-  }
-  .google-btn:hover {
-    box-shadow: 0 0 6px ;
-    background: #1669F2;
-  }
-}
+        .google-btn {
+            width: 184px;
+            height: 42px;
+            background-color: #222222;
+            border-radius: 10px;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+        }
+
+        .google-icon-wrapper {
+            position: absolute;
+            margin-top: 1px;
+            margin-left: 1px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px 2px 2px 10px;
+            background-color: #fff;
+        }
+
+        .google-icon {
+            position: absolute;
+            margin-top: 11px;
+            margin-left: 11px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-text {
+            float: right;
+            margin: 11px 11px 0 0;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            font-family: "Roboto";
+        }
+
+        .google-btn:hover {
+            box-shadow: 0 0 6px;
+            background: #1669F2;
+        }
+        }
+
     </style>
 </head>
 
@@ -114,6 +119,17 @@
                     <div class="form-element">
                         <button type="reset">RESET</button>
                     </div>
+                    {{-- ------Google Btn------- --}}
+                    <div class="google-btn">
+                        <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
+                            <img class="google-icon"
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                        </a>
+                        <a href="{{ route('googleRedirect') }}">
+                            <p class="btn-text">Sign in with google</p>
+                        </a>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -190,12 +206,13 @@
                     </div>
                     {{-- ------Google Btn------- --}}
                     <div class="google-btn">
-                      <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
-                        <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-                      </a>
-                      <a href="{{ route('googleRedirect') }}">
-                          <p class="btn-text">Sign in with google</p>
-                      </a>
+                        <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
+                            <img class="google-icon"
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                        </a>
+                        <a href="{{ route('googleRedirect') }}">
+                            <p class="btn-text">Sign up with google</p>
+                        </a>
                     </div>
                 </form>
             </div>

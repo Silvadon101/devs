@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
 
 class SocialAuthController extends Controller
 {
@@ -16,6 +17,7 @@ class SocialAuthController extends Controller
     public function googleCallback(){
         $user = Socialite::driver('google')->user();
         $this->createOrUpdateUser($user,'google');
+        return redirect('/');
     }
 
     public function createOrUpdateUser($data, $provider){
@@ -36,6 +38,10 @@ class SocialAuthController extends Controller
                 'avatar'=> $data->avatar,
             ]);
         }
+
+        session()->put("googleuser", $data->name);
+
+       Auth::login($user);
 
     }
 }

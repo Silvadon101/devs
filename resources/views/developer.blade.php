@@ -18,12 +18,21 @@
 
 {{--    ----------------Client Info--------------------}}
     <div class="client_con">
+        @if(session('googleuser'))
+        <div class="client">
+            <img src="{{ auth()->user()->avatar }}" alt="profile-icon" height="100px" width="100px" style="border-radius: 200px">
+            <span class="client-name">
+                <h4>{{ auth()->user()->name }}</h4>
+            </span>
+        </div>
+        @else
         <div class="client">
             <img src="/img/profile-icon.png" alt="profile-icon" height="100px" width="100px">
             <span class="client-name">
                 <h4>{{ session('loguser') }}</h4>
             </span>
         </div>
+        @endif
         <i class="fas fa-level-down-alt arrow-down"></i>
     </div>
     {{--   -------X-----Client Info-------X-----------}}

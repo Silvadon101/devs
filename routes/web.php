@@ -22,7 +22,7 @@ use App\Http\Controllers\UsersController;
 // });
 
 // ?------------Home Page-----------------
-Route::get('/',[DevController::class,'index']);
+Route::get('/',[DevController::class,'index'])->name('home');
 
 // ?------------Edit Button----------------
 Route::get('/edit/{id}',[DevController::class,'edit']);

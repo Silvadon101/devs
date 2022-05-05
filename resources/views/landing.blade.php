@@ -190,10 +190,10 @@
                     </div>
                     {{-- ------Google Btn------- --}}
                     <div class="google-btn">
-                      <a class="google-icon-wrapper" href="#">
+                      <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
                         <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                       </a>
-                      <a href="#">
+                      <a href="{{ route('googleRedirect') }}">
                           <p class="btn-text">Sign in with google</p>
                       </a>
                     </div>

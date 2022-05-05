@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DevController;
 use App\Http\Controllers\UsersController;
@@ -63,3 +64,15 @@ Route::post('login',[UsersController::class,'checklogin']);
 
 // ?-------------- Project tag button-----------------
 Route::get('/project/{id}',[DevController::class,'show']);
+
+/**
+ * ------------------------------
+ * Google Button 
+ * ------------------------------
+ * 
+ *  All routes here relates to 
+ * google signup and login
+ */
+
+Route::get('/auth/google/redirect',[SocialAuthController::class,'googleRedirect'])->name('googleRedirect');
+Route::get('/auth/google/callback',[SocialAuthController::class,'googleCallback'])->name('googleCallback');

@@ -56,7 +56,6 @@
             box-shadow: 0 0 6px;
             background: #1669F2;
         }
-        }
 
     </style>
 </head>
@@ -123,7 +122,7 @@
                     <div class="google-btn">
                         <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
                             <img class="google-icon"
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                                src="/img/g-logo.png" />
                         </a>
                         <a href="{{ route('googleRedirect') }}">
                             <p class="btn-text">Sign in with google</p>
@@ -208,7 +207,7 @@
                     <div class="google-btn">
                         <a class="google-icon-wrapper" href="{{ route('googleRedirect') }}">
                             <img class="google-icon"
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                                src="/img/g-logo.png" />
                         </a>
                         <a href="{{ route('googleRedirect') }}">
                             <p class="btn-text">Sign up with google</p>
